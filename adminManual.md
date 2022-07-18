@@ -103,24 +103,25 @@ export function loginEvent(loginUrl, userData) {
 ```
 
 - 사용예시
+
   - loginEvent 함수 사용 예시
 
-```
-loginEvent(loginUrl, login);
-```
-
-- loginEvent를 활용한 loginFn 함수 사용 예제
-
-```
-const fnLogin = (e) => {
-  e.preventDefault();
-  if (login.userid === "" || login.passwd === "") {
-    return alert("아이디와 비밀번호를 입력해 주세요.");
-  }
+  ```
   loginEvent(loginUrl, login);
-  navigate("/");
-};
-```
+  ```
+
+  - loginEvent를 활용한 loginFn 함수 사용 예제
+
+  ```
+  const fnLogin = (e) => {
+    e.preventDefault();
+    if (login.userid === "" || login.passwd === "") {
+      return alert("아이디와 비밀번호를 입력해 주세요.");
+    }
+    loginEvent(loginUrl, login);
+    navigate("/");
+  };
+  ```
 
 ## string
 
