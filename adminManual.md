@@ -88,13 +88,13 @@ export function loginEvent(loginUrl, userData) {
   })
     .then((res) => {
       if (res.data.status === "fail") {
-        window.location.reload();
         alert("회원가입을 먼저 진행해 주세요.");
         return;
       }
       if (res.data.status === "success") {
         const accessToken = res.data.data.jtoken;
         setStorage(ISLOGIN, `${accessToken}`);
+        window.location.href = `${process.env.PUBLIC_URL}/`;
         return console.log(accessToken);
       }
     })
@@ -116,10 +116,9 @@ export function loginEvent(loginUrl, userData) {
   const fnLogin = (e) => {
     e.preventDefault();
     if (login.userid === "" || login.passwd === "") {
-      return alert("아이디와 비밀번호를 입력해 주세요.");
+      return alert("아이디와 비밀번호를 입력해 주세요!");
     }
     loginEvent(loginUrl, login);
-    navigate("/");
   };
   ```
 
