@@ -147,7 +147,7 @@ console.log(loginUrl, ISLOGIN); // http://devback.gongsacok.com:8080/pub/login, 
 
 ```
 const initialState = {
-  userInfo: { userid: "", passwd: "" },
+  login: { userid: "", passwd: "" },
 };
 
 const reducer = (state = initialState, action) => {
@@ -164,7 +164,7 @@ const reducer = (state = initialState, action) => {
     case "userInfoInputChange":
     // action이 userInfoInputChange 때 실행된다.
 
-      newState.userInfo = action.payload;
+      newState.login = action.payload;
       // userInfoInputChange의 payload 값을 newState의 userInfo에게 할당된다.
     break;
 
@@ -182,13 +182,13 @@ export default reducer;
 import { useSelector, useDispatch } from "react-redux";
 
 function Login() {
-  const user = useSelector((state) => state.userInfo);
+  const login = useSelector((state) => state.login);
   const dispatch = useDispatch();
 
   function onChange(e) {
     dispatch({
       type: "userInfoInputChange",
-      payload: { ...user, [e.target.id]: [e.target.value] },
+      payload: { ...login, [e.target.id]: [e.target.value] },
     });
   }
 
